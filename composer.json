@@ -1,0 +1,6 @@
+
+{
+    "require": {
+        "mrkrstphr/php-gedcom": "1.0.*"
+    }
+}

@@ -1,0 +1,43 @@
+[
+    {
+        "name": "mrkrstphr/php-gedcom",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mrkrstphr/php-gedcom.git",
+            "reference": "b8289e87844dd111b91eefb87b3866479857c5ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mrkrstphr/php-gedcom/zipball/b8289e87844dd111b91eefb87b3866479857c5ba",
+            "reference": "b8289e87844dd111b91eefb87b3866479857c5ba",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*",
+            "squizlabs/php_codesniffer": "1.*"
+        },
+        "time": "2013-01-29 01:45:58",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PhpGedcom\\": "library/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "description": "A GEDCOM file parser (read + write) for PHP 5.3+",
+        "homepage": "http://github.com/mrkrstphr/php-gedcom",
+        "keywords": [
+            "gedcom",
+            "parser"
+        ]
+    }
+]

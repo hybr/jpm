@@ -1,0 +1,13 @@
+body {
+	background: lightBlue url("./body.jpg") center;
+	color: white;
+}
+
+.header {
+	background: lightBlue url('./header.jpg') repeat;
+	color: white;
+}
+
+hr {
+	height: 2px;
+}
