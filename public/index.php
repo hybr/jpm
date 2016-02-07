@@ -1,6 +1,49 @@
+<?php
 
-<?php session_start(); ?>
-<?php include '../autoload.php'?>
+/**
+* This is the entry file for JPM framework.
+* A web framework based on jquery, php, mongodb
+*
+* This framework is designed to host multiple websites from a single 
+* location and their data in mongodb. These small websites could be 
+* personal of commercial websites.
+*
+* LICENSE: Owned by HYBR
+*
+* @category   HYBR
+* @package    JPM
+* @subpackage index
+* @copyright  Copyright (c) 2011-2016 HYBR Trust (http://www.hybr.in)
+* @license    Private
+* @version    $Id:$
+* @link       http://www.hybr.in
+* @since      File available since Release 1.0
+*/
+
+?>
+
+<?php
+
+/**
+* session_start() creates a session or resumes the current one based on a session 
+* identifier passed via a GET or POST request, or passed via a cookie.
+*/
+
+session_start(); 
+
+?>
+
+
+<?php
+
+/**
+* autoload.php has common logic for the framework
+*/
+
+include dirname(__FILE__) . '/../autoload.php' 
+
+?>
+
 
 <?php
 	$jpmContent = '';
@@ -20,7 +63,14 @@
 		echo 'invalid action ' . $_SESSION['url_action'] . $e->getMessage ();
 	}
 ?>
-<?php 
-	if(file_exists('home_pages/_default.php')) 
-		include 'home_pages/_default.php';
+
+<?php
+
+/**
+* This is main home page code file, it has scheme based on domain name seperate home page is loaded
+*/
+
+if(file_exists(dirname(__FILE__) . '/home_pages/_default.php')) 
+	include dirname(__FILE__) . '/home_pages/_default.php'; 
+
 ?>
