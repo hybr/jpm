@@ -36,6 +36,26 @@ if (isset($_GET['debug'])) {
 }
 
 /**
+ * Find the database access configuration based on environment
+ * Moved on top to load the MongoClient before defining __autoload
+ */
+function setSessionWithMongoDatabaseHandle() {
+	if ($_SERVER['SERVER_NAME'] == 'localhost') {
+		/* development environment */
+		$mongoUrl = "mongodb://localhost:27017";
+		$mongoDb = "db1";
+	} else {
+		/* production environment */
+		$mongoUrl = "mongodb://localhost:27017";
+		$mongoDb = "db1";
+	}
+	$mongoClient = new MongoClient ( $mongoUrl );
+	$_SESSION['mongo_database'] = $mongoClient->{$mongoDb};
+}
+setSessionWithMongoDatabaseHandle();
+
+
+/**
  * function to load the class based on first word in URL path
  * 
  * From PHP Manual: __autoload — Attempt to load undefined class. You can 
@@ -76,7 +96,6 @@ function __autoload($class_name) {
 		throw new Exception ( 'File ' . $file . ' not found' );
 	}
 }
-
 
 /**
  * Function to create the menu HTML code
@@ -418,24 +437,6 @@ function getTitle($title) {
 	return $returnString;
 }
 
-
-/**
- * Find the database access configuration based on environment
- */
-function setSessionWithMongoDatabaseHandle() {
-	if ($_SERVER['SERVER_NAME'] == 'localhost') {
-		/* development environment */
-		$mongoUrl = "mongodb://localhost:27017";
-		$mongoDb = "db1";
-	} else {
-		/* production environment */
-		$mongoUrl = "mongodb://localhost:27017";
-		$mongoDb = "db1";
-	}
-	$mongoClient = new MongoClient ( $mongoUrl );
-	$_SESSION['mongo_database'] = $mongoClient->{$mongoDb};
-}
-setSessionWithMongoDatabaseHandle();
 
 /**
  * read the record for current domain in url 
